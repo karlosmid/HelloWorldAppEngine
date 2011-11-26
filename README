@@ -1,1 +1,25 @@
 Hello World in Python for Google App engine.
+1. First issue with missing MySQLdb library on my machine
+
+Description
+
+karlo@karlo-Satellite-L670:~$ uname -a
+Linux karlo-Satellite-L670 2.6.38-12-generic #51-Ubuntu SMP Wed Sep 28 14:27:32 UTC 2011 x86_64 x86_64 x86_64 GNU/Linux
+karlo@karlo-Satellite-L670:~/google_appengine$ ./dev_appserver.py ~/HelloWorldAppEngine/helloworld.py
+WARNING  2011-11-26 15:34:39,757 rdbms_mysqldb.py:90] The rdbms API is not available because the MySQLdb library could not be loaded.
+Traceback (most recent call last):
+  File "./dev_appserver.py", line 77, in <module>
+    run_file(__file__, globals())
+  File "./dev_appserver.py", line 73, in run_file
+    execfile(script_path, globals_)
+  File "/home/karlo/google_appengine/google/appengine/tools/dev_appserver_main.py", line 682, in <module>
+    sys.exit(main(sys.argv))
+  File "/home/karlo/google_appengine/google/appengine/tools/dev_appserver_main.py", line 571, in main
+    root_path, {}, default_partition=default_partition)
+  File "/home/karlo/google_appengine/google/appengine/tools/dev_appserver.py", line 2983, in LoadAppConfig
+    raise AppConfigNotFoundError
+google.appengine.tools.dev_appserver.AppConfigNotFoundError
+
+Solution
+
+karlo@karlo-Satellite-L670:~$ sudo apt-get install python-mysqldb
